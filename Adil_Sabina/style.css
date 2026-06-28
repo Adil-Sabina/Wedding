@@ -1256,10 +1256,29 @@ body, html {
     margin-bottom: 16px; /* Выравниваем двоеточие по центру цифр */
 }
 
-/* Разрешаем скролл ТОЛЬКО внутри блоков, если контент в них не помещается */
+/* Кроссбраузерный скролл для Safari iOS и Chrome */
 @media screen and (max-width: 768px) {
+    /* Принудительно разрешаем прокрутку для всех сцен на iOS */
     .scene {
+        position: relative !important;
         overflow-y: auto !important;
+        overflow-x: hidden !important;
+        /* Включаем аппаратное ускорение скролла для Safari */
+        -webkit-overflow-scrolling: touch !important; 
+        /* Убираем жесткую блокировку жестов */
+        touch-action: pan-y !important; 
+    }
+
+    /* Персонально для 5-й сцены с длинной формой */
+    #scene-5 {
+        max-height: 100% !important;
+    }
+
+    /* Обертка формы внутри сцены должна разрешать скролл контента */
+    .rsvp-container, 
+    #rsvp-form,
+    .scene-container {
+        overflow: visible !important;
         -webkit-overflow-scrolling: touch !important;
     }
 }
