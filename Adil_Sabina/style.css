@@ -1256,29 +1256,52 @@ body, html {
     margin-bottom: 16px; /* Выравниваем двоеточие по центру цифр */
 }
 
-/* Кроссбраузерный скролл для Safari iOS и Chrome */
+/* 🔥 КАРДИНАЛЬНОЕ РЕШЕНИЕ ДЛЯ МОБИЛЬНЫХ (SAFARI iOS и CHROME) */
 @media screen and (max-width: 768px) {
-    /* Принудительно разрешаем прокрутку для всех сцен на iOS */
+    /* Снимаем полноэкранный режим с главных контейнеров */
+    html, body {
+        overflow-y: scroll !important; /* Принудительно включаем вертикальный скролл */
+        overflow-x: hidden !important;
+        height: auto !important; /* Разрешаем телу сайта расти вниз */
+        min-height: 100vh !important;
+        -webkit-overflow-scrolling: touch !important; /* Плавный скролл iOS */
+        position: relative !important;
+    }
+
+    /* Снимаем жесткую фиксацию с обертки сцен, если она есть */
+    #main-wrapper, 
+    .main-container, 
+    .wrapper {
+        height: auto !important;
+        overflow: visible !important;
+        position: relative !important;
+    }
+
+    /* Превращаем полноэкранные сцены в обычные блоки */
     .scene {
         position: relative !important;
-        overflow-y: auto !important;
-        overflow-x: hidden !important;
-        /* Включаем аппаратное ускорение скролла для Safari */
-        -webkit-overflow-scrolling: touch !important; 
-        /* Убираем жесткую блокировку жестов */
-        touch-action: pan-y !important; 
+        top: auto !important;
+        left: auto !important;
+        height: auto !important; /* Отменяем полноэкранную высоту */
+        min-height: 100vh !important; /* Каждый блок занимает минимум экран, но может расти */
+        overflow: visible !important; /* Разрешаем контенту вылезать за края */
+        display: block !important;
+        opacity: 1 !important; /* Принудительно показываем */
+        visibility: visible !important;
+        transform: none !important; /* Отменяем JS-анимации наложения */
+        padding: 40px 0 !important; /* Небольшие отступы, чтобы контент не прилипал */
+        z-index: 1 !important; /* Выравниваем z-index, чтобы не было белых экранов */
     }
-
-    /* Персонально для 5-й сцены с длинной формой */
+    
+    /* Специфические настройки для 5-й сцены с длинной формой */
     #scene-5 {
-        max-height: 100% !important;
+        min-height: 100vh !important;
+        padding-top: 60px !important;
     }
 
-    /* Обертка формы внутри сцены должна разрешать скролл контента */
-    .rsvp-container, 
+    /* Разрешаем скролл внутри формы */
     #rsvp-form,
-    .scene-container {
+    .rsvp-container {
         overflow: visible !important;
-        -webkit-overflow-scrolling: touch !important;
     }
 }
