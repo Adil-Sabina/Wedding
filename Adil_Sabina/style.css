@@ -1,4 +1,28 @@
 /* --- СТИЛИ ДЛЯ СЦЕНЫ 1 (ИНТРО) --- */
+/* ВКЛЮЧАЕМ СКРОЛЛ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ */
+@media screen and (max-width: 768px) {
+    /* Разрешаем скролл для всей страницы */
+    html, body {
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        height: auto !important;
+    }
+
+    /* Снимаем жесткое ограничение по высоте со всех блоков (сцен) */
+    .scene, 
+    .section, 
+    #scene-5, 
+    #scene-6,
+    div[class*="scene-container"],
+    div[id*="scene"] {
+        height: auto !important;
+        min-height: 100vh !important; /* Блок будет занимать минимум экран, но расти вниз, если контента много */
+        overflow-y: visible !important;
+        position: relative !important;
+        padding-top: 40px !important;  /* Небольшие отступы, чтобы контент не прилипал к краям */
+        padding-bottom: 60px !important;
+    }
+}
 /* --- СИСТЕМНЫЙ КАРКАС ИНТЕРАКТИВНОЙ КНИГИ --- */
 * {
     box-sizing: border-box;
