@@ -833,7 +833,7 @@ body, html {
     flex-direction: column;
     gap: 10px;
     width: 100%;
-    margin-top: 80px;
+    margin-top: 65px;
     
     opacity: 0;
     transform: translateY(15px);
@@ -1266,11 +1266,13 @@ body, html {
         -webkit-overflow-scrolling: touch !important; /* Плавная прокрутка для iOS Safari */
         padding-bottom: 40px !important; /* Запас снизу, чтобы кнопка не прилипала */
     }
-     #scene-6 .scene-container,
-    .rsvp-container {
-        max-height: 80vh !important; /* Ограничиваем высоту контента, чтобы он не уходил под панели Safari */
-        overflow-y: auto !important; /* Включаем внутренний скролл */
-        -webkit-overflow-scrolling: touch !important; /* Плавная прокрутка для iOS Safari */
-        padding-bottom: 40px !important; /* Запас снизу, чтобы кнопка не прилипала */
+    /* Внутренний скролл для контента на 6-й сцене (Таймер и финал) */
+    #scene-6 .scene-container,
+    #scene-6 .final-scene-container,
+    #scene-6 .final-content {
+        max-height: 82vh !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding-bottom: 50px !important; /* Чуть больше запас снизу для подписи */
     }
 }
