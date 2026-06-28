@@ -261,3 +261,9 @@ function initWeddingTimer() {
 
 // Запуск таймера при загрузке страницы
 document.addEventListener("DOMContentLoaded", initWeddingTimer);
+
+// Инициализировать скролл только если экран больше мобильного
+if (window.innerWidth > 768) {
+    // Тут твой старый код инициализации полноэкранного скролла
+    // Например: initFullPageScroll();
+}
