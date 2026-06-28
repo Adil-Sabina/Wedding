@@ -1256,52 +1256,14 @@ body, html {
     margin-bottom: 16px; /* Выравниваем двоеточие по центру цифр */
 }
 
-/* 🔥 КАРДИНАЛЬНОЕ РЕШЕНИЕ ДЛЯ МОБИЛЬНЫХ (SAFARI iOS и CHROME) */
+/* Безопасный кроссбраузерный скролл ТОЛЬКО для контента формы */
 @media screen and (max-width: 768px) {
-    /* Снимаем полноэкранный режим с главных контейнеров */
-    html, body {
-        overflow-y: scroll !important; /* Принудительно включаем вертикальный скролл */
-        overflow-x: hidden !important;
-        height: auto !important; /* Разрешаем телу сайта расти вниз */
-        min-height: 100vh !important;
-        -webkit-overflow-scrolling: touch !important; /* Плавный скролл iOS */
-        position: relative !important;
-    }
-
-    /* Снимаем жесткую фиксацию с обертки сцен, если она есть */
-    #main-wrapper, 
-    .main-container, 
-    .wrapper {
-        height: auto !important;
-        overflow: visible !important;
-        position: relative !important;
-    }
-
-    /* Превращаем полноэкранные сцены в обычные блоки */
-    .scene {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        height: auto !important; /* Отменяем полноэкранную высоту */
-        min-height: 100vh !important; /* Каждый блок занимает минимум экран, но может расти */
-        overflow: visible !important; /* Разрешаем контенту вылезать за края */
-        display: block !important;
-        opacity: 1 !important; /* Принудительно показываем */
-        visibility: visible !important;
-        transform: none !important; /* Отменяем JS-анимации наложения */
-        padding: 40px 0 !important; /* Небольшие отступы, чтобы контент не прилипал */
-        z-index: 1 !important; /* Выравниваем z-index, чтобы не было белых экранов */
-    }
-    
-    /* Специфические настройки для 5-й сцены с длинной формой */
-    #scene-5 {
-        min-height: 100vh !important;
-        padding-top: 60px !important;
-    }
-
-    /* Разрешаем скролл внутри формы */
-    #rsvp-form,
+    /* Находим контейнер, в котором лежит вся форма на 5-й сцене */
+    #scene-5 .scene-container,
     .rsvp-container {
-        overflow: visible !important;
+        max-height: 80vh !important; /* Ограничиваем высоту контента, чтобы он не уходил под панели Safari */
+        overflow-y: auto !important; /* Включаем внутренний скролл */
+        -webkit-overflow-scrolling: touch !important; /* Плавная прокрутка для iOS Safari */
+        padding-bottom: 40px !important; /* Запас снизу, чтобы кнопка не прилипала */
     }
 }
