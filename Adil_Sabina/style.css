@@ -1,26 +1,32 @@
 /* --- СТИЛИ ДЛЯ СЦЕНЫ 1 (ИНТРО) --- */
-/* ВКЛЮЧАЕМ СКРОЛЛ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ */
 @media screen and (max-width: 768px) {
-    /* Разрешаем скролл для всей страницы */
     html, body {
-        overflow-y: auto !important;
+        overflow-y: scroll !important;
         overflow-x: hidden !important;
         height: auto !important;
+        -webkit-overflow-scrolling: touch !important; /* Плавный скролл на iOS */
+        touch-action: auto !important; /* Разрешаем браузеру обрабатывать жесты */
     }
 
-    /* Снимаем жесткое ограничение по высоте со всех блоков (сцен) */
-    .scene, 
-    .section, 
-    #scene-5, 
-    #scene-6,
-    div[class*="scene-container"],
-    div[id*="scene"] {
+    /* Пробиваем блокировку у всех возможных контейнеров-оберток */
+    #main-wrapper, 
+    .main-container, 
+    .wrapper,
+    #scene-5,
+    .scene {
         height: auto !important;
-        min-height: 100vh !important; /* Блок будет занимать минимум экран, но расти вниз, если контента много */
+        min-height: 100vh !important;
         overflow-y: visible !important;
-        position: relative !important;
-        padding-top: 40px !important;  /* Небольшие отступы, чтобы контент не прилипал к краям */
-        padding-bottom: 60px !important;
+        overflow-x: hidden !important;
+        touch-action: auto !important;
+        pointer-events: auto !important; /* Возвращаем реакцию на тапы и скролл */
+    }
+    
+    /* Делаем саму форму гибкой, чтобы она не прятала кнопку */
+    #rsvp-form {
+        height: auto !important;
+        overflow: visible !important;
+        display: block !important;
     }
 }
 /* --- СИСТЕМНЫЙ КАРКАС ИНТЕРАКТИВНОЙ КНИГИ --- */
