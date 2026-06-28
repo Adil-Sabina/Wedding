@@ -1255,3 +1255,11 @@ body, html {
     color: #B08D57;
     margin-bottom: 16px; /* Выравниваем двоеточие по центру цифр */
 }
+
+/* Разрешаем скролл ТОЛЬКО внутри блоков, если контент в них не помещается */
+@media screen and (max-width: 768px) {
+    .scene {
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+}
