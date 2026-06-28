@@ -1,34 +1,4 @@
 /* --- СТИЛИ ДЛЯ СЦЕНЫ 1 (ИНТРО) --- */
-@media screen and (max-width: 768px) {
-    html, body {
-        overflow-y: scroll !important;
-        overflow-x: hidden !important;
-        height: auto !important;
-        -webkit-overflow-scrolling: touch !important; /* Плавный скролл на iOS */
-        touch-action: auto !important; /* Разрешаем браузеру обрабатывать жесты */
-    }
-
-    /* Пробиваем блокировку у всех возможных контейнеров-оберток */
-    #main-wrapper, 
-    .main-container, 
-    .wrapper,
-    #scene-5,
-    .scene {
-        height: auto !important;
-        min-height: 100vh !important;
-        overflow-y: visible !important;
-        overflow-x: hidden !important;
-        touch-action: auto !important;
-        pointer-events: auto !important; /* Возвращаем реакцию на тапы и скролл */
-    }
-    
-    /* Делаем саму форму гибкой, чтобы она не прятала кнопку */
-    #rsvp-form {
-        height: auto !important;
-        overflow: visible !important;
-        display: block !important;
-    }
-}
 /* --- СИСТЕМНЫЙ КАРКАС ИНТЕРАКТИВНОЙ КНИГИ --- */
 * {
     box-sizing: border-box;
